@@ -1,0 +1,14 @@
+@import "abstracts/_functions.scss";
+@import "abstracts/_mixins.scss";
+@import "abstracts/_variables.scss";
+
+@import "base/_animations.scss";
+@import "base/_base.scss";
+@import "base/_typography.scss";
+
+@import "components/button";
+@import "components/card";
+@import "components/quiz";
+@import "components/front";
+@import "components/modal";
+@import "components/leaderboard";

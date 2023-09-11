@@ -1,0 +1,57 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html {
+  font-size: 100%;
+
+  // @include respond(desktop-big) {
+  //   //>1800px
+  //   font-size: 75%; //12px
+  // }
+
+  // @include respond(tablet-h) {
+  //   //<1200px
+  //   font-size: 56.25%; //9px
+  // }
+
+  // @include respond(tablet-v) {
+  //   //<900px
+  //   font-size: 50%; //8px
+  // }
+  @include respond(phone) {
+    font-size: 90%;
+  }
+  @media screen and (max-width: 360px) {
+    font-size: 70%;
+  }
+  @media screen and (max-height: 700px) {
+    font-size: 80%;
+  }
+  @media screen and (max-height: 650px) {
+    font-size: 70%;
+  }
+  @media screen and (max-height: 360px) {
+    font-size: 50%;
+  }
+  @media screen and (max-height: 150px) {
+    font-size: 40%;
+  }
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: border-box;
+  background-image: url("../../sources/pics/back.jpg");
+  @include respond(tablet-v) {
+    padding: 0;
+  }
+}

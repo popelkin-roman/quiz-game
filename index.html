@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://yandex.ru/games/sdk/v2"></script>
+    <script src="./js/quiz.js" type="module"></script>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card__side card__side--front">
+        <div class="header">
+          <h1 class="heading-primary">Знаешь ли ты нулевые?</h1>
+          <div class="rang">
+            <h2 class="rang__heading">Твой рейтинг</h2>
+            <p class="rang__score">0</p>
+            <button class="btn rang__btn">Лидерборд</button>
+          </div>
+        </div>
+
+        <div class="topics">
+          <div class="topic topic-1">
+            <div class="topic__info">
+              <span class="topic__name">Музыка</span>
+              <span class="topic__score">0|20</span>
+            </div>
+            <div class="topic__quizes">
+              <button class="topic-button btn" id="topic-1-button-1">1</button>
+              <button class="topic-button btn" id="topic-1-button-2">2</button>
+              <button class="topic-button btn" id="topic-1-button-3">3</button>
+              <button class="topic-button btn" id="topic-1-button-4">4</button>
+            </div>
+          </div>
+          <div class="topic topic-2">
+            <div class="topic__info">
+              <span class="topic__name">Игры</span>
+              <span class="topic__score">0|20</span>
+            </div>
+            <div class="topic__quizes">
+              <button class="topic-button btn" id="topic-2-button-1">1</button>
+              <button class="topic-button btn" id="topic-2-button-2">2</button>
+              <button class="topic-button btn" id="topic-2-button-3">3</button>
+              <button class="topic-button btn" id="topic-2-button-4">4</button>
+            </div>
+          </div>
+          <div class="topic topic-3">
+            <div class="topic__info">
+              <span class="topic__name">Интернет</span>
+              <span class="topic__score">0|20</span>
+            </div>
+            <div class="topic__quizes">
+              <button class="topic-button btn" id="topic-3-button-1">1</button>
+              <button class="topic-button btn" id="topic-3-button-2">2</button>
+              <button class="topic-button btn" id="topic-3-button-3">3</button>
+              <button class="topic-button btn" id="topic-3-button-4">4</button>
+            </div>
+          </div>
+          <div class="topic topic-4">
+            <div class="topic__info">
+              <span class="topic__name">Фильмы</span>
+              <span class="topic__score">0|20</span>
+            </div>
+            <div class="topic__quizes">
+              <button class="topic-button btn" id="topic-4-button-1">1</button>
+              <button class="topic-button btn" id="topic-4-button-2">2</button>
+              <button class="topic-button btn" id="topic-4-button-3">3</button>
+              <button class="topic-button btn" id="topic-4-button-4">4</button>
+            </div>
+          </div>
+          <div class="topic topic-5">
+            <div class="topic__info">
+              <span class="topic__name">ТВ</span>
+              <span class="topic__score">0|20</span>
+            </div>
+            <div class="topic__quizes">
+              <button class="topic-button btn" id="topic-5-button-1">1</button>
+              <button class="topic-button btn" id="topic-5-button-2">2</button>
+              <button class="topic-button btn" id="topic-5-button-3">3</button>
+              <button class="topic-button btn" id="topic-5-button-4">4</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card__side card__side--back card__side--back-1">
+        <div class="start-screen">
+          <p class="start-screen__description">
+            В этом тесте будет 10 вопросов. Время на каждый вопрос ограничено!
+          </p>
+          <button class="btn" id="start-button">Начать</button>
+          <div class="start-screen__paylock hide">
+            <p class="start-screen__description">
+              Этот тест откроется после просмотра рекламы
+            </p>
+            <button class="btn pay-button">Открыть</button>
+            <button class="btn goback">Назад</button>
+          </div>
+        </div>
+
+        <div class="display-container">
+          <div class="quiz-header">
+            <!-- <div class="number-of-count">
+              <span class="number-of-question">1 / 10</span>
+            </div> -->
+            <div class="timer-div">
+              <span class="time-left">10</span>
+            </div>
+          </div>
+          <div id="container"></div>
+          <div class="number-of-count">
+            <span class="number-of-question">1 / 10</span>
+          </div>
+        </div>
+        <div class="score-container hide">
+          <div class="user-score">
+            <p class="user-score__heading">Результат:</p>
+            <p class="user-score__value">0</p>
+            <div class="user-score__bonus hidden"><span> 100% </span></div>
+          </div>
+          <button class="btn" id="nextQuiz">Дальше</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal hidden">
+      <button class="btn--close-modal">×</button>
+      <h2 class="modal__header">I got 99 problems...</h2>
+      <p class="modal__text">
+        Что-то пошло не так. Приложение может работать некорректно. Проверьте
+        подключение к Интернету
+      </p>
+    </div>
+
+    <div class="leaderboard hidden">
+      <h2 class="leaderboard__heading">Лучшие игроки</h2>
+      <div class="loader">
+        <div class="loader__text">Загрузка...</div>
+      </div>
+      <div class="authorization hide">
+        <p class="authorization__text">
+          Авторизуйтесь, чтобы соревноваться с другими!
+        </p>
+        <button class="btn authorization__btn">Авторизоваться</button>
+      </div>
+      <table class="lb-table hide">
+        <tr class="lb-table__header">
+          <th>Место</th>
+          <th>Имя</th>
+          <th>Рейтинг</th>
+        </tr>
+        <tr class="lb-table__row lb-table__row--1">
+          <td class="lb-table__place">1</td>
+          <td class="lb-table__name">Валюта Скуратов</td>
+          <td class="lb-table__score">50</td>
+        </tr>
+        <tr class="lb-table__row lb-table__row--2">
+          <td class="lb-table__place">2</td>
+          <td class="lb-table__name">Валюта Скуратов</td>
+          <td class="lb-table__score">50</td>
+        </tr>
+        <tr class="lb-table__row lb-table__row--3">
+          <td class="lb-table__place">3</td>
+          <td class="lb-table__name">Валюта Скуратов</td>
+          <td class="lb-table__score">50</td>
+        </tr>
+        <tr class="lb-table__row lb-table__row--4">
+          <td class="lb-table__place">4</td>
+          <td class="lb-table__name">Валюта Скуратов</td>
+          <td class="lb-table__score">50</td>
+        </tr>
+        <tr class="lb-table__row lb-table__row--5">
+          <td class="lb-table__place">5</td>
+          <td class="lb-table__name">Валюта Скуратов</td>
+          <td class="lb-table__score">50</td>
+        </tr>
+        <tr class="lb-table__row lb-table__row--6">
+          <td class="lb-table__place">...</td>
+          <td class="lb-table__name">...</td>
+          <td class="lb-table__score">...</td>
+        </tr>
+        <tr class="lb-table__row lb-table__row--7">
+          <td class="lb-table__place">...</td>
+          <td class="lb-table__name">...</td>
+          <td class="lb-table__score">...</td>
+        </tr>
+        <tr class="lb-table__row lb-table__row--8">
+          <td class="lb-table__place">...</td>
+          <td class="lb-table__name">...</td>
+          <td class="lb-table__score">...</td>
+        </tr>
+      </table>
+      <button class="leaderboard__btn">Закрыть</button>
+    </div>
+    <div class="overlay hidden"></div>
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+
+  &__side {
+    height: 100%;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+
+    &--front {
+      background-image: url(../sources/pics/back.jpg),
+        linear-gradient(to bottom, #29100d, #0f0605);
+      color: #222;
+      background-blend-mode: overlay;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+      background-image: $color-one;
+    }
+  }
+}
